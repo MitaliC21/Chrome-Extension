@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
        chrome.tabs.sendMessage(activeTab.id, {"data": 'pass'});
        console.log("solved")
         }
+        chrome.tabs.sendMessage(activeTab.id, {"msg": 'alert'});
     });
 });
 });

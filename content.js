@@ -7,6 +7,9 @@ function gotMessage(request, sender, sendResponse){
         console.log(p[i].innerText)
     }
    }
+   if(request.msg === "alert"){
+     alert("Done");
+   }
 }
 
 
