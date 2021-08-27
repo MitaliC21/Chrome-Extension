@@ -26,14 +26,15 @@ document.addEventListener("DOMContentLoaded", function() {
    console.log(pageEnd)
     chrome.tabs.query({ currentWindow: true, active: true }, async (tabs) => {
       var activeTab = tabs[0];
-      var count = pageEnd=pageStart;
-     for(count; count >= 0; count--){
+      var count = pageEnd-pageStart;
+     for(count; count > 0; count--){
        await goToUrl(activeTab.id, `https://www.linkedin.com/search/results/people/?keywords=data%20science&origin=SWITCH_SEARCH_VERTICAL&page=${++pageStart}&sid=uf%2C`)
 
        chrome.tabs.sendMessage(activeTab.id, {"data": 'pass'});
        console.log("solved")
         }
         chrome.tabs.sendMessage(activeTab.id, {"msg": 'alert'});
+
     });
 });
 });
